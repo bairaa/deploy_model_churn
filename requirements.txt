@@ -1,7 +1,7 @@
 streamlit
 joblib
 numpy
+imblearn
 category_encoders
 xgboost
-scikit-learn==1.6.1
-imbalance-learn==0.13.0
+imblearn
