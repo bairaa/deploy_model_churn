@@ -53,7 +53,9 @@ col1,col2=st.columns(2)
 # left
 with col1:
     st.subheader('Customer Feature')
-    st.write(data_customer.T.rename(columns={0:'Feature Name',1:'Value'}))
+    df = data_customer.T.reset_index()
+    df.columns = ['Feature Name', 'Value']
+    st.write(df)
 
 # load model
 with open('best_model.sav','rb') as f:
@@ -73,6 +75,7 @@ with col2:
         st.write("This customer will NOT CHURN")
     # display probability
     st.write(f"Probability of Churn: {probability[1]:.2f}")
+
 
 
 
