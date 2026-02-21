@@ -50,13 +50,12 @@ data_customer=create_user_input()
 # create 2 containers
 col1,col2=st.columns(2)
 
-# left
 with col1:
     st.subheader('Customer Feature')
     df = data_customer.T.reset_index()
     df.columns = ['Feature Name', 'Value']
     df.insert(0, 'No', range(1, len(df) + 1))
-    st.write(df)
+    st.dataframe(df, hide_index=True, use_container_width=True)
 
 # load model
 with open('best_model.sav','rb') as f:
@@ -76,6 +75,7 @@ with col2:
         st.write("This customer will NOT CHURN")
     # display probability
     st.write(f"Probability of Churn: {probability[1]:.2f}")
+
 
 
 
