@@ -55,6 +55,7 @@ with col1:
     st.subheader('Customer Feature')
     df = data_customer.T.reset_index()
     df.columns = ['Feature Name', 'Value']
+    df.insert(0, 'No', range(1, len(df) + 1))
     st.write(df)
 
 # load model
@@ -75,6 +76,7 @@ with col2:
         st.write("This customer will NOT CHURN")
     # display probability
     st.write(f"Probability of Churn: {probability[1]:.2f}")
+
 
 
 
